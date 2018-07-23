@@ -18,7 +18,7 @@ public class DemoController {
 
     public static volatile boolean go = true;
 
-    static ExecutorService executorService = Executors.newCachedThreadPool();
+    static ExecutorService executorService = Executors.newFixedThreadPool(10);
 
     @Autowired
     private RedisConfig redisConfig;
@@ -26,14 +26,16 @@ public class DemoController {
     @ResponseBody
     @RequestMapping("/")
     public String index() {
+        Thread s = new Thread(new TimerThread());
+        s.start();
         Thread thread = new Thread(() -> {
             while (go) {
-                executorService.execute(new Thread(new InnerThread(redisConfig)));
+                // executorService.execute(new Thread(new InnerThread(redisConfig)));
+                Long l = redisConfig.getSequence();
+                System.out.println(l);
             }
         });
         thread.start();
-        Thread s = new Thread(new TimerThread());
-        s.start();
         return "success!";
     }
 
@@ -65,7 +67,7 @@ public class DemoController {
         @Override
         public void run() {
             try {
-                Thread.sleep(8 * 1000L);
+                Thread.sleep(10 * 1000L);
                 go = false;
             } catch (Exception e) {
                 e.printStackTrace();

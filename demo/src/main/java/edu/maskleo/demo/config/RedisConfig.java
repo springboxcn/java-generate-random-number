@@ -16,7 +16,7 @@ public class RedisConfig {
     public long getSequence(){
         RedisAtomicLong atomicLong = new RedisAtomicLong(SEQ_KEY, jedisConnectionFactory());
         if (-1 == atomicLong.getExpire()){
-            atomicLong.expire(1, TimeUnit.HOURS);
+            atomicLong.expire(5, TimeUnit.SECONDS);
         }
         return atomicLong.incrementAndGet();
     }
