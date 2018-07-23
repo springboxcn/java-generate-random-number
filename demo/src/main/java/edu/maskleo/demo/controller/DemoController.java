@@ -26,7 +26,7 @@ public class DemoController {
     @ResponseBody
     @RequestMapping("/")
     public String index() {
-        Thread s = new Thread(new TimerThread());
+        /*Thread s = new Thread(new TimerThread());
         s.start();
         Thread thread = new Thread(() -> {
             while (go) {
@@ -35,7 +35,8 @@ public class DemoController {
                 System.out.println(l);
             }
         });
-        thread.start();
+        thread.start();*/
+        System.out.println(redisConfig.getSequence());
         return "success!";
     }
 

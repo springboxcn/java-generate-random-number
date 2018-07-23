@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo2/demo2.iml" filepath="$PROJECT_DIR$/demo2/demo2.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-generate-random-number.iml" filepath="$PROJECT_DIR$/java-generate-random-number.iml" />
     </modules>
   </component>
