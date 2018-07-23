@@ -8,6 +8,8 @@
 
 - [window下配置redis的一主二从三哨兵模式](https://blog.csdn.net/xiaokailele/article/details/72597971)
 
+- [Leaf——美团点评分布式ID生成系统](https://tech.meituan.com/MT_Leaf.html)
+
 ## LICENSE
 
 ### [CC-BY-SA-3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/cn/)
