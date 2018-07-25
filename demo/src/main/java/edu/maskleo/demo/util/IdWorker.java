@@ -1,7 +1,7 @@
 package edu.maskleo.demo.util;
 
 /**
- *  雪花算法
+ * 雪花算法
  */
 public class IdWorker {
 
@@ -30,6 +30,14 @@ public class IdWorker {
         }
         this.workerId = workerId;
         this.datacenterId = datacenterId;
+    }
+
+    public static void main(String[] args) {
+        IdWorker idWorker = new IdWorker(0, 0);
+        for (int i = 0; i < 1000; i++) {
+            long id = idWorker.nextId();
+            System.out.println(id);
+        }
     }
 
     public synchronized long nextId() {
@@ -61,13 +69,5 @@ public class IdWorker {
 
     protected long timeGen() {
         return System.currentTimeMillis();
-    }
-
-    public static void main(String[] args) {
-        IdWorker idWorker = new IdWorker(0, 0);
-        for (int i = 0; i < 1000; i++) {
-            long id = idWorker.nextId();
-            System.out.println(id);
-        }
     }
 }
